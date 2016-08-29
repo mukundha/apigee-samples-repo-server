@@ -1,0 +1,17 @@
+{
+  "name": "samples_registry",
+  "version": "1.0.0",
+  "description": "A Registry app for managing and sharing apigee samples",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express":"*",
+    "request":"*",
+    "gulp-git":"*"
+  },
+  "author": "mukundha@apigee.com",
+  "license": "Apache-2.0"
+}
