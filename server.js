@@ -7,7 +7,7 @@ var app = express()
 var exec = require('child_process').exec;
 var config = require('./config')
 
-var client_id = config.config
+var client_id = config.client_id
 var secret = config.secret
 var repo_url = config.repo_url
 var basefolder = path.join('.','data')
