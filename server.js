@@ -13,7 +13,6 @@ var repo_url = config.repo_url
 var basefolder = path.join('.','data')
 var samples = {}
 
-
 app.get('/samples',function(req,res){
 	res.json(samples)
 })
@@ -58,8 +57,14 @@ function setup (){
 					var execpath = path.join(p,e.folder)
 					exec(cmd, {cwd:execpath} , function(execr,stdin,stdout){
 						if(execr){console.log(execr)}
-						else console.log('npm install success')	
-					}).stdout.pipe(process.stdout)
+						else {
+							console.log('npm install success')	
+							var testpath = '/v1/o/:org/e/:env/samples/' + e.name+'/tests'
+							console.log(testpath);
+							console.log( p + '/test')
+							app.use(testpath,express.static(p + '/test'))
+						}
+					})
 				}else{
 					console.log(err)
 				}
@@ -76,4 +81,4 @@ function getDefaultRequest () {
 	})
 }
 
-app.listen(3000)
+app.listen(5000)
